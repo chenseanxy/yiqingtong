@@ -1,8 +1,27 @@
 # 自动疫情通填报
 
-Powered by Nightwatch.js
+ -- A project 6 months too late. Powered by Nightwatch.js
 
-## 如何使用
+Todo: 可能会加个Mock地理信息的功能吧
+
+## 如何使用 - Docker
+
+运行时需将`<Your-ID-Here>`及`<Your-Password-Here>`分别换成姓名
+
+```bash
+mkdir tests_output && mkdir screens
+
+docker run --rm \
+    -e NW_USERNAME=<Your-ID-Here> \
+    -e NW_PASSWORD=<Your-Password-Here> \
+    -v $PWD/tests_output:/usr/src/app/tests_output \
+    -v $PWD/screens:/usr/src/app/screens \
+    chenseanxy/yiqingtong
+```
+
+## 如何使用 - 本地安装
+
+需求：Chrome。
 
 ### 安装Node.js
 

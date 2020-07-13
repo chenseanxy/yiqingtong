@@ -58,8 +58,40 @@ module.exports = {
       }
     },
 
-    chrome: {
-      
+    headless: {
+      disable_error_log: false,
+      launch_url: 'https://xxcapp.xidian.edu.cn/ncov/wap/default/index',
+
+      screenshots: {
+        enabled: true,
+        path: 'screens',
+        on_failure: true
+      },
+
+      desiredCapabilities : {
+        browserName : 'chrome',
+        chromeOptions : {
+          // This tells Chromedriver to run using the legacy JSONWire protocol (not required in Chrome 78)
+          // w3c: false,
+          // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
+          args: [
+            '--disable-geolocation',
+            '--no-sandbox',
+            '--ignore-certificate-errors',
+            '--allow-insecure-localhost',
+            '--headless'
+          ]
+        }
+      },
+
+      webdriver: {
+        start_process: true,
+        port: 9515,
+        server_path: ('/usr/bin/chromedriver'),
+        cli_args: [
+          // --verbose
+        ]
+      }
     },
   }
 };

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nightwatch"
+    "test": "nightwatch",
+    "headless-test": "nightwatch --env headless"
   },
   "repository": {
     "type": "git",
