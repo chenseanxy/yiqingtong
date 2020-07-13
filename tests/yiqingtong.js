@@ -1,5 +1,12 @@
 const config = require('../config');
 
+function filenamePrefix() {
+    return new Date()
+        .toLocaleDateString()
+        .replace(/\//g, '-')
+    ;
+}
+
 module.exports = {
     'YiQingTong': (browser) => {
         browser
@@ -17,7 +24,9 @@ module.exports = {
             // Main Page
             // Geolocation
             .click('div[name=area] > input[readonly=readonly]')
+            .waitForElementVisible('div.page-loading-container', 500)
             .waitForElementNotVisible('div.page-loading-container', 2000)
+            .saveScreenshot(`screens/yiqingtong/${filenamePrefix()}-location.png`)
             .pause(100)
 
             // Submit
@@ -27,6 +36,7 @@ module.exports = {
             // Confirm
             .click('div.wapcf-btn-ok')
             .waitForElementVisible('div.wapat-inner', 500)
+            .saveScreenshot(`screens/yiqingtong/${filenamePrefix()}-result.png`)
             .end()
     },
     after: (browser) => {
