@@ -19,6 +19,27 @@ docker run --rm \
     chenseanxy/yiqingtong
 ```
 
+### Cron Scheduling
+
+在服务器上使用Cron定时运行：这里使用Ofelia来执行Docker相关定时任务。
+
+```bash
+# Start Ofelia Daemon
+docker-compose -f ofelia.yml up -d
+
+# Run nightwatch
+docker run --rm \
+    --label ofelia.enabled=true \
+    --label ofelia.job-run.nightwatch.schedule="0 30 0 * * *" \
+    -e NW_USERNAME=<Your-ID-Here> \
+    -e NW_PASSWORD=<Your-Password-Here> \
+    -v $PWD/tests_output:/usr/src/app/tests_output \
+    -v $PWD/screens:/usr/src/app/screens \
+    chenseanxy/yiqingtong
+```
+
+其中`0 30 0 * * *`表示在每天0:30执行。
+
 ## 如何使用 - 本地安装
 
 需求：Chrome。
