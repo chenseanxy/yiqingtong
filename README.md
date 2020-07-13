@@ -6,7 +6,7 @@ Todo: 可能会加个Mock地理信息的功能吧
 
 ## 如何使用 - Docker
 
-运行时需将`<Your-ID-Here>`及`<Your-Password-Here>`分别换成姓名
+运行时需将`<Your-ID-Here>`及`<Your-Password-Here>`分别换成学号及统一认证登陆密码
 
 ```bash
 mkdir tests_output && mkdir screens
