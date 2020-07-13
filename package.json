@@ -1,0 +1,24 @@
+{
+  "name": "yiqingtong",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nightwatch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenseanxy/yiqingtong.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenseanxy/yiqingtong/issues"
+  },
+  "homepage": "https://github.com/chenseanxy/yiqingtong#readme",
+  "devDependencies": {
+    "chromedriver": "^83.0.1",
+    "dotenv": "^8.2.0",
+    "nightwatch": "^1.3.6"
+  }
+}
