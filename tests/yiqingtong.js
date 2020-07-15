@@ -24,17 +24,19 @@ module.exports = {
             // Main Page
             // Geolocation
             .click('div[name=area] > input[readonly=readonly]')
-            .waitForElementVisible('div.page-loading-container', 500)
             .waitForElementNotVisible('div.page-loading-container', 2000)
             .saveScreenshot(`screens/yiqingtong/${filenamePrefix()}-location.png`)
             .pause(100)
 
             // Submit
             .click('div.footers > a')
+            .waitForElementNotVisible('div.page-loading-container', 2000)
             .waitForElementVisible('div.wapcf-inner', 500)
             .pause(100)
+            
             // Confirm
             .click('div.wapcf-btn-ok')
+            .waitForElementNotVisible('div.page-loading-container', 2000)
             .waitForElementVisible('div.wapat-inner', 500)
             .saveScreenshot(`screens/yiqingtong/${filenamePrefix()}-result.png`)
             .end()
