@@ -7,10 +7,10 @@ services:
     depends_on: 
       - nightwatch
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/run/docker.sock:/var/run/docker.sock
     labels: 
       ofelia.job-run.nightwatch.container: "yiqingtong_nightwatch"
-      ofelia.job-run.nightwatch.schedule: "0 30 0 * * *"      
+      ofelia.job-run.nightwatch.schedule: "0 15 16 * * *"      
 
   nightwatch:
     image: chenseanxy/yiqingtong:latest

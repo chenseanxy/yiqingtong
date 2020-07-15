@@ -34,7 +34,7 @@ mkdir tests_output && mkdir screens
 docker-compose up -d
 ```
 
-其中`docker-compose.yml`中 `0 30 0 * * *`表示在每天0:30:00执行。
+其中`docker-compose.yml`中 `0 15 16 * * *`表示在每天0:15:00执行（使用UTC时间，为UTC 16:15:00）。
 
 ## 如何使用 - 本地安装
 
