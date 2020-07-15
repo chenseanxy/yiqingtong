@@ -1,0 +1,23 @@
+version: "3"
+services:
+  ofelia:
+    image: mcuadros/ofelia:latest
+    restart: "no"
+    command: daemon --docker
+    depends_on: 
+      - nightwatch
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels: 
+      ofelia.job-run.nightwatch.container: "yiqingtong_nightwatch"
+      ofelia.job-run.nightwatch.schedule: "0 30 0 * * *"      
+
+  nightwatch:
+    image: chenseanxy/yiqingtong:latest
+    container_name: "yiqingtong_nightwatch"
+    restart: "no"
+    volumes:
+      - ./tests_output:/usr/src/app/tests_output
+      - ./screens:/usr/src/app/screens
+    env_file: 
+      - .env

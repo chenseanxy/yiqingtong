@@ -23,22 +23,18 @@ docker run --rm \
 
 在服务器上使用Cron定时运行：这里使用Ofelia来执行Docker相关定时任务。
 
-```bash
-# Start Ofelia Daemon
-docker-compose -f ofelia.yml up -d
+#### 配置环境变量
 
-# Run nightwatch
-docker run --rm \
-    --label ofelia.enabled=true \
-    --label ofelia.job-run.nightwatch.schedule="0 30 0 * * *" \
-    -e NW_USERNAME=<Your-ID-Here> \
-    -e NW_PASSWORD=<Your-Password-Here> \
-    -v $PWD/tests_output:/usr/src/app/tests_output \
-    -v $PWD/screens:/usr/src/app/screens \
-    chenseanxy/yiqingtong
+将`.env.example`重命名至`.env`，并编辑，在其中填上统一认证的用户名（学号）与密码
+
+#### 启动服务
+
+```bash
+mkdir tests_output && mkdir screens
+docker-compose up -d
 ```
 
-其中`0 30 0 * * *`表示在每天0:30执行。
+其中`docker-compose.yml`中 `0 30 0 * * *`表示在每天0:30:00执行。
 
 ## 如何使用 - 本地安装
 
@@ -61,7 +57,7 @@ cd yiqingtong
 
 ### 配置环境变量
 
-将`.env.example`重命名至`.env`，并编辑，在其中填上统一认证的用户名与密码
+将`.env.example`重命名至`.env`，并编辑，在其中填上统一认证的用户名（学号）与密码
 
 ### 填报
 
