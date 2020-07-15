@@ -18,3 +18,5 @@ RUN npm install
 COPY . .
 
 CMD [ "npm","run","headless-test" ]
+
+ENV TZ=Asia/Shanghai
