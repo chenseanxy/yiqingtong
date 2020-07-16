@@ -2,7 +2,7 @@ version: "3"
 services:
   ofelia:
     image: mcuadros/ofelia:latest
-    restart: "no"
+    restart: always
     command: daemon --docker
     depends_on: 
       - nightwatch
