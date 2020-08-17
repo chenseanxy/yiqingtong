@@ -2,11 +2,13 @@
 
  -- A project 6 months too late. Powered by Nightwatch.js
 
-Todo: 可能会加个Mock地理信息的功能吧
+Mock地址信息的版本请见`chenseanxy/yiqingtong-puppeteer`
 
 ## 如何使用 - Docker
 
 运行时需将`<Your-ID-Here>`及`<Your-Password-Here>`分别换成学号及统一认证登陆密码
+
+如需晨午晚检，在命令后加上`npm run headless-checkup`
 
 ```bash
 mkdir tests_output && mkdir screens
@@ -29,12 +31,14 @@ docker run --rm \
 
 #### 启动服务
 
+如需晨午晚检，取消checkup的注释，并在ofelia labels一栏注释前两行，取消注释后两行。
+
 ```bash
 mkdir tests_output && mkdir screens
 docker-compose up -d
 ```
 
-其中`docker-compose.yml`中 `0 15 16 * * *`表示在每天0:15:00执行（使用UTC时间，为UTC 16:15:00）。
+其中`docker-compose.yml`中 `0 15 0 * * *`表示在每天0:15:00执行。
 
 ## 如何使用 - 本地安装
 
@@ -62,3 +66,5 @@ cd yiqingtong
 ### 填报
 
 `npm run test`，如果有报错可以在tests_output里查看详情，或者screens里查看报错时截屏
+
+晨午晚检使用`npm run checkup`
