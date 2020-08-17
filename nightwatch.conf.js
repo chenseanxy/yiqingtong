@@ -24,7 +24,7 @@ module.exports = {
   test_settings: {
     default: {
       disable_error_log: false,
-      launch_url: 'https://xxcapp.xidian.edu.cn/ncov/wap/default/index',
+      // launch_url: 'https://xxcapp.xidian.edu.cn/ncov/wap/default/index',
 
       screenshots: {
         enabled: true,

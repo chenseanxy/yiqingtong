@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nightwatch",
-    "headless-test": "nightwatch --env headless"
+    "test": "nightwatch tests/yiqingtong.js",
+    "headless-test": "nightwatch --env headless tests/yiqingtong.js",
+    "checkup": "nightwatch tests/checkup.js",
+    "headless-checkup": "nightwatch --env headless tests/checkup.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,6 @@
   "devDependencies": {
     "chromedriver": "^83.0.1",
     "dotenv": "^8.2.0",
-    "nightwatch": "^1.3.6"
+    "nightwatch": "^1.3.7"
   }
 }
