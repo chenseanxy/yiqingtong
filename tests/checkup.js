@@ -8,7 +8,7 @@ function filenamePrefix() {
 }
 
 module.exports = {
-    'YiQingTong': (browser) => {
+    'CheckUp': (browser) => {
         browser
             .init('https://xxcapp.xidian.edu.cn/site/ncov/xidiandailyup')
             .waitForElementVisible('body', 1000)
@@ -20,10 +20,11 @@ module.exports = {
             .pause(100)
             .click('div.btn')
             .waitForElementVisible('body', 1000)
-
+            
             // Main Page
             // Geolocation
-            .click('div[name=area] > input[readonly=readonly]')
+            .waitForElementVisible('div[name=area] > span', 1000)
+            .click('div[name=area] > span')
             .waitForElementNotVisible('div.page-loading-container', 2000)
             .saveScreenshot(`screens/checkup/${filenamePrefix()}-location.png`)
             .pause(100)
@@ -37,7 +38,6 @@ module.exports = {
             // Confirm
             .click('div.wapcf-btn-ok')
             .waitForElementNotVisible('div.page-loading-container', 2000)
-            .waitForElementVisible('div.wapat-inner', 500)
             .saveScreenshot(`screens/checkup/${filenamePrefix()}-result.png`)
             .end()
     },

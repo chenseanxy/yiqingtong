@@ -10,7 +10,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     labels: 
       ofelia.job-run.nightwatch.container: "yiqingtong_nightwatch"
-      ofelia.job-run.nightwatch.schedule: "0 15 16 * * *"      
+      ofelia.job-run.nightwatch.schedule: "0 15 0 * * *"      
+      # ofelia.job-run.nightwatch.container: "yiqingtong_checkup"
+      # ofelia.job-run.nightwatch.schedule: "0 15 9,13,18 * * *"
+    environment:
+      - TZ=Asia/Shanghai
 
   nightwatch:
     image: chenseanxy/yiqingtong:latest
@@ -21,3 +25,14 @@ services:
       - ./screens:/usr/src/app/screens
     env_file: 
       - .env
+  
+  # checkup:
+  #   image: chenseanxy/yiqingtong:latest
+  #   container_name: "yiqingtong_checkup"
+  #   command: npm run headless-checkup
+  #   restart: "no"
+  #   volumes:
+  #     - ./tests_output:/usr/src/app/tests_output
+  #     - ./screens:/usr/src/app/screens
+  #   env_file: 
+  #     - .env
